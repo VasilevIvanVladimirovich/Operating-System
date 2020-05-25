@@ -116,11 +116,11 @@ void lock_Sem(int semId, int n)
 }
 void sem(int semId, int n, int d)
 {
-    struct sembuf op;
-    op.sem_num = n;
-    op.sem_op = d; 
-    op.sem_flg = 0;
-    semop(semId, &op, 1);
+    struct sembuf mybuf;
+    mybuf.sem_num = n;
+    mybuf.sem_op = d; 
+    mybuf.sem_flg = 0;
+    semop(semId, &mybuf, 1);
 }
 void Sort_Array(int semId, int* mem, const size_t n)
 {
